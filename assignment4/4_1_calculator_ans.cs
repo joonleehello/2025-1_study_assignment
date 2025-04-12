@@ -49,9 +49,64 @@ namespace calculator
     // Calculator class to perform operations
     public class Calculator
     {
-        // ---------- TODO ----------
-        
-        // --------------------
+        public double Calculate(double num1, string op, double num2)
+
+        {
+
+            if (op == "+")
+            {
+                return num1 + num2;
+            }
+
+            else if (op == "-")
+            {
+                return num1 - num2;
+            }
+
+            else if (op == "*")
+            {
+                return num1 * num2;
+            }
+
+            else if (op == "/")
+            {
+                return num1 / num2;
+            }
+
+            else if (op == "**")
+            {
+                return Math.Pow(num1, num2);
+            }
+
+            else if (op == "%")
+            {
+                return num1 % num2;
+            }
+
+
+            else if (op == "G" || op == "L")
+            {
+                int d_num1 = (int)num1;
+                int d_num2 = (int)num2;
+
+                while (num2 != 0)
+                {
+                    int temp = (int)num2;
+                    num2 = num1 % num2;
+                    num1 = temp;
+                }
+
+                if (op == "G") return num1;
+
+                return (d_num1 * d_num2) / num1;
+
+
+            }
+
+            else throw new ArgumentException("Invalid operator");
+
+
+        }
     }
 }
 
