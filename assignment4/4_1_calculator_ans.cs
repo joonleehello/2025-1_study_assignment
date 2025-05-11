@@ -70,6 +70,11 @@ namespace calculator
 
             else if (op == "/")
             {
+                if (num2 == 0)
+                {
+                    throw new DivideByZeroException("Division by zero is not allowed");
+                }
+
                 return num1 / num2;
             }
 
